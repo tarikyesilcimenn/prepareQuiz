@@ -17,7 +17,7 @@ const Quiz = () => {
         <h1>LOGO</h1>
       </div>
       <div className="flex justify-center my-5">
-        <Canvas width={600} height={800} />
+        <Canvas width={300} height={400} />
         Barış
       </div>
       {showModal && (

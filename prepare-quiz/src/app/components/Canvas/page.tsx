@@ -1,5 +1,6 @@
 'use client'
 import { useRef, useEffect } from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 interface CanvasTypes{
     width: number,
     height: number

@@ -1,9 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { Modal, Button, Divider } from 'antd'
+import { Canvas } from '../components/Canvas/page'
+
+
+
+
 
 const Quiz = () => {
-
   const [showModal, setShowModal] = useState<boolean>()
   const [selectedLayout, setSelectedLayout] = useState<string>('')
 
@@ -18,12 +22,8 @@ const Quiz = () => {
       <div className='flex justify-center items-center bg-white h-[74px] text-black'>
         <h1>LOGO</h1>
       </div>
-      <div className='flex justify-center'>
-        <div className='h-[1357px] w-[1025px] bg-white my-5'>
-          <p>asd</p>
-          <Divider type="vertical" />
-          <p>asd</p>
-        </div>
+      <div className='flex justify-center my-5'>
+        <Canvas width={600} height={800}/>
 
       </div>
       {showModal &&

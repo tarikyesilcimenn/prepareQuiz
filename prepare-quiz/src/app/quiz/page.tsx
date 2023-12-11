@@ -16,9 +16,8 @@ const Quiz = () => {
       <div className="flex justify-center items-center bg-white h-[74px] text-black">
         <h1>LOGO</h1>
       </div>
-      <div className="flex justify-center my-5">
-        <Canvas width={300} height={400} />
-        Barış
+      <div className="grid justify-center my-5">
+        <Canvas width={300}/>
       </div>
       {showModal && (
         <Modal open={showModal} footer={false} closable={false}>

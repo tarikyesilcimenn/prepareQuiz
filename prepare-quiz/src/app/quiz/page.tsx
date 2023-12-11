@@ -18,7 +18,7 @@ const Quiz = () => {
         <h1>LOGO</h1>
       </div>
       <div className="flex justify-center my-5">
-        <Canvas width={300} height={400} />
+        <Canvas width={300} />
       </div>
       <DraggableComponent />
 

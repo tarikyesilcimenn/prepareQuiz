@@ -1,16 +1,16 @@
 'use client'
 import { useRef, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
+import './page.scss'
 interface CanvasTypes{
-    width: number,
-    height: number
+    width: number
   }
-export function Canvas({width, height} : CanvasTypes) {
+export function Canvas({width} : CanvasTypes) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     // Draw canvas here...
   }, []);
 
-  return <canvas ref={canvasRef} width={width} height={height} className='bg-white'/>;
+  return <canvas ref={canvasRef} className='canvas bg-white'/>;
 }

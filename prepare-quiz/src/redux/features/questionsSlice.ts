@@ -2,11 +2,13 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
 interface IQuestions {
-    question: object
+    question: object,
+    showQuestion: boolean
 }
 
 const initialState= {
-    question:{}
+    question:{},
+    showQuestion: false
 
 } as IQuestions
 
@@ -16,12 +18,16 @@ export const questions = createSlice({
     reducers:{
         addQuestions: (state, action:PayloadAction<object>) => {
             state.question = action.payload
+        },
+        showQuestionModal: (state, action: PayloadAction<boolean>) => {
+            state.showQuestion = action.payload
         }
     }
 });
 
 export const {
-    addQuestions
+    addQuestions,
+    showQuestionModal
 } = questions.actions;
 
 export default  questions.reducer;

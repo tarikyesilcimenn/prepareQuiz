@@ -1,26 +1,34 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Divider } from "antd";
+import { useSelector, useDispatch } from "react-redux"
 import { Canvas } from "../components/Canvas/page";
-import DraggableComponent from "../components/Draggable";
+import Navbar from "../components/Navbar/page"
+import { RootState } from "@/redux/store";
+import { showQuestionModal } from "@/redux/features/questionsSlice";
 
 const Quiz = () => {
+  const dispatch = useDispatch()
   const [showModal, setShowModal] = useState<boolean>();
   const [selectedLayout, setSelectedLayout] = useState<string>("");
+  const isShowQuestionModal = useSelector((state: RootState) => state.questionReducer.showQuestion)
+
+
 
   useEffect(() => {
     setShowModal(true);
   }, []);
 
+  useEffect(() => {
+    console.log(isShowQuestionModal, 'tarık')
+  }, [isShowQuestionModal])
+
   return (
     <div className={showModal === true ? "blur-sm" : ""}>
-      <div className="flex justify-center items-center bg-white h-[74px] text-black">
-        <h1>LOGO</h1>
-      </div>
+      <Navbar />
       <div className="flex justify-center my-5">
         <Canvas width={300} />
       </div>
-      <DraggableComponent />
 
       {showModal && (
         <Modal open={showModal} footer={false} closable={false}>
@@ -54,6 +62,22 @@ const Quiz = () => {
             >
               Select
             </Button>
+          </div>
+        </Modal>
+      )}
+
+      {isShowQuestionModal && (
+        <Modal open={isShowQuestionModal} footer={false} closable={true}>
+          <div className="flex flex-col">
+            <div>Header</div>
+            <div>Content</div>
+            <div className="flex justify-end">
+              <Button
+                onClick={() => dispatch(showQuestionModal(false))}
+              >
+                Add
+              </Button>
+            </div>
           </div>
         </Modal>
       )}

@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Divider } from "antd";
 import { Canvas } from "../components/Canvas/page";
-import DraggableComponent from "../components/Draggable";
 
 const Quiz = () => {
   const [showModal, setShowModal] = useState<boolean>();
@@ -20,8 +19,6 @@ const Quiz = () => {
       <div className="flex justify-center my-5">
         <Canvas width={300} />
       </div>
-      <DraggableComponent />
-
       {showModal && (
         <Modal open={showModal} footer={false} closable={false}>
           <p className="text-xl">

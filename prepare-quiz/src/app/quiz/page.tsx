@@ -1,12 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Modal, Button, Divider } from "antd";
+import { Modal, Button, Divider, Input, Form } from "antd";
 import { useSelector, useDispatch } from "react-redux"
 import { Canvas } from "../components/Canvas/page";
 import Navbar from "../components/Navbar/page"
 import { RootState } from "@/redux/store";
 import { showQuestionModal } from "@/redux/features/questionsSlice";
-
 const Quiz = () => {
   const dispatch = useDispatch()
   const [showModal, setShowModal] = useState<boolean>();
@@ -20,7 +19,7 @@ const Quiz = () => {
   }, []);
 
   useEffect(() => {
-    console.log(isShowQuestionModal, 'tarık')
+    // console.log(isShowQuestionModal, 'tarık')
   }, [isShowQuestionModal])
 
   return (
@@ -69,8 +68,14 @@ const Quiz = () => {
       {isShowQuestionModal && (
         <Modal open={isShowQuestionModal} footer={false} closable={true}>
           <div className="flex flex-col">
-            <div>Header</div>
-            <div>Content</div>
+            <div>
+              <p className="text-xl text-green-500">Please enter your questions</p>
+            </div>
+            <div>
+              <Form>
+                
+              </Form>
+            </div>
             <div className="flex justify-end">
               <Button
                 onClick={() => dispatch(showQuestionModal(false))}
